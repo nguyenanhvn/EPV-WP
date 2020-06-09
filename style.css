@@ -1,0 +1,64 @@
+@media (min-width: 1200px){
+	#footer .footer-bottom .footer-bottom__ipad{
+		display: none;
+	}
+}
+section.content-news-style1 .content-news_box .industry-slide .item{
+	width: 100%;
+}
+div.wpcf7-response-output{
+	clear: both;
+}
+.sticky-fanpage{
+	max-width: 320px;
+	position: fixed;
+	top: calc(100vh - 40px);
+	right: 2em;
+	z-index: 99;
+	width: 100%;
+	max-height: 450px;
+}
+.sticky-fanpage .closeFrame{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	font-size: 40px;
+	text-align: center;
+	top: 0;
+	right: 30px;
+	z-index: 2;
+	line-height: 40px;
+	color: #fff;
+}
+.sticky-fanpage h3{
+	position: relative;
+	cursor: pointer;
+	text-align: center;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	color: #fff;
+	padding: 0 30px;
+	line-height: 40px;
+	margin: 0;
+	background-color: #184562;
+	font-size: 16px;
+}
+.sticky-fanpage h3:after{
+	content: "\f0d8";
+	display: inline-block;;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin-left: 10px;
+	color: #00aeef;
+}
+.sticky-fanpage.active h3:after{
+	content: "\f0d7";
+}
+.sticky-fanpage.active{
+	top: auto;
+	bottom: 0;
+}
