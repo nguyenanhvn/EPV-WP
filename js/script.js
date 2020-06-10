@@ -638,19 +638,18 @@ jQuery(window).resize(function(event) {
 		cssEase: 'linear',
 		swipe: false,
 		speed: 1000,
+		swipe: true,
 		responsive: [
 		{
 			breakpoint: 1920,
 			settings: {
 				dots: false,
-				swipe: false,
 			}
 		},
 		{
 			breakpoint: 992,
 			settings: {
 				dots: true,
-				swipe: true,
 			}
 		}
 		]
@@ -661,7 +660,7 @@ jQuery(window).resize(function(event) {
 		prevArrow: '<div class="tw__prev"><span></span></div>',
 		nextArrow: '<div class="tw__next"><span></span></div>',
 		cssEase: 'linear',
-		swipe: false,
+		swipe: true,
 		speed: 1000,
 		dots: false,
 		responsive: [
@@ -677,7 +676,6 @@ jQuery(window).resize(function(event) {
 			breakpoint: 992,
 			settings: {
 				slidesToShow: 2,
-				swipe: true,
 			}
 		}
 		]

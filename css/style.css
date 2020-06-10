@@ -1060,7 +1060,7 @@ body > .sticky {
         margin: 0; }
         #header .header-middle .header-middle__menu > ul > li, #header-sticky-wrapper .header-middle .header-middle__menu > ul > li {
           float: left;
-          padding-right: 40px;
+          padding-right: 30px;
           line-height: 50px;
           position: relative; }
           #header .header-middle .header-middle__menu > ul > li:last-child, #header-sticky-wrapper .header-middle .header-middle__menu > ul > li:last-child {
@@ -1354,10 +1354,10 @@ body > .sticky {
 @media (max-width: 1200px) {
   #header .header-middle .header-middle__menu > ul > li,
   #header-sticky-wrapper .header-middle .header-middle__menu > ul > li {
-    padding-right: 20px; }
+    padding-right: 13px; }
     #header .header-middle .header-middle__menu > ul > li > a,
     #header-sticky-wrapper .header-middle .header-middle__menu > ul > li > a {
-      font-size: 13px; }
+      font-size: 12px; }
 
   #header .header-middle .header-middle__right .right__language,
   #header-sticky-wrapper .header-middle .header-middle__right .right__language {
@@ -4657,8 +4657,10 @@ section.content-upcoming {
           section.content-upcoming .content-upcoming_top .content-upcoming_box .box__top .view__all:hover {
             background: #00aeef; }
       section.content-upcoming .content-upcoming_top .content-upcoming_box .box__bottom {
-        float: left;
-        width: 100%;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-wrap: wrap;
         position: relative;
         padding-top: 40px;
         z-index: 9; }
@@ -4687,7 +4689,6 @@ section.content-upcoming {
           float: left;
           width: calc(100% - 400px);
           margin-right: 50px;
-          height: 480px;
           position: relative;
           overflow: hidden;
           margin-bottom: -50px; }
@@ -4772,7 +4773,8 @@ section.content-upcoming {
               color: #00aeef; }
         section.content-upcoming .content-upcoming_top .content-upcoming_box .box__bottom .items {
           float: right;
-          width: 350px; }
+          width: 350px;
+          padding-bottom: 60px; }
           section.content-upcoming .content-upcoming_top .content-upcoming_box .box__bottom .items .item {
             float: left;
             width: 100%; }

@@ -474,6 +474,67 @@ function exhibit_meta_boxes( $meta_boxes ) {
 		),
 		'fields' => array(
 			array(
+				'name'       => 'Box Static',
+				'type'       => 'heading',
+			),
+			array(
+				'name'		=> 'Static Heading White',
+				'id'		=> $prefix . 'static_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Static Heading Blue',
+				'id'		=> $prefix . 'static_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'Static Groups',
+				'id'         => $prefix . 'static_groups',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 5,
+				'fields' => array(
+					array(
+						'name'    => 'Image',
+						'id'      => $prefix . 'static_image',
+						'type'    => 'single_image',
+					),
+					array(
+						'name'    => 'Number',
+						'id'      => $prefix . 'static_number',
+						'type'    => 'text',
+					),
+					array(
+						'name'    => 'Sub Number',
+						'id'      => $prefix . 'static_sub_number',
+						'type'    => 'text',
+					),
+					array(
+						'name'    => 'Text',
+						'id'      => $prefix . 'static_text',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'       => 'Box Exhibit',
+				'type'       => 'heading',
+			),
+			array(
+				'name'		=> 'Exhibit Heading White',
+				'id'		=> $prefix . 'exhibit_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Exhibit Heading Blue',
+				'id'		=> $prefix . 'exhibit_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
 				'name'       => 'Group List',
 				'id'         => $prefix . 'group',
 				'type'       => 'group',
@@ -507,6 +568,29 @@ function exhibit_meta_boxes( $meta_boxes ) {
 							'textarea_rows' => 4,
 							'teeny'         => true,
 						),
+					),
+				),
+			),
+			array(
+				'name'       => 'Exhibit Ads',
+				'id'         => $prefix . 'exhibit_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'link',
+						'type'    => 'text',
 					),
 				),
 			),
@@ -615,6 +699,39 @@ function exhibit_meta_boxes( $meta_boxes ) {
 				'type'       => 'heading',
 			),
 			array(
+				'name'       => 'Visitor Ads',
+				'id'         => $prefix . 'visitor_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'visitor_image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'visitor_link',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'		=> 'Visitor Heading White',
+				'id'		=> $prefix . 'visitor_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Visitor Heading Blue',
+				'id'		=> $prefix . 'visitor_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
 				'name'       => 'Visitor List',
 				'id'         => $prefix . 'visitor_group',
 				'type'       => 'group',
@@ -643,8 +760,28 @@ function exhibit_meta_boxes( $meta_boxes ) {
 				),
 			),
 			array(
+				'name'		=> 'Visitor Text Button',
+				'id'		=> $prefix . 'visitor_text_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Visitor Link Button',
+				'id'		=> $prefix . 'visitor_link_button',
+				'type'		=> 'text',
+			),
+			array(
 				'name'       => 'Box Testimonial',
 				'type'       => 'heading',
+			),
+			array(
+				'name'		=> 'Testimonial Heading White',
+				'id'		=> $prefix . 'testimonial_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Testimonial Heading Blue',
+				'id'		=> $prefix . 'testimonial_heading_blue',
+				'type'		=> 'text',
 			),
 			array(
 				'name'       => 'Group List',
@@ -675,15 +812,88 @@ function exhibit_meta_boxes( $meta_boxes ) {
 					array(
 						'name'    => 'Information',
 						'id'      => $prefix . 'testimonial_paragraph',
-						'type'    => 'wysiwyg',
+						'type'    => 'textarea',
 						'raw'     => true,
-						'options' => array(
-							'textarea_rows' => 4,
-							'teeny'         => true,
-						),
+						'limit'   => 200,
+						'limit_type' => 'word',
 					),
 				),
-			)
+			),		
+			array(
+				'name'       => 'Testimonial Ads',
+				'id'         => $prefix . 'testimonial_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'testimonial_image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'testimonial_link',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'       => 'Box Upcoming',
+				'type'       => 'heading',
+			),		
+			array(
+				'name'       => 'Upcoming Ads',
+				'id'         => $prefix . 'upcoming_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'upcoming_image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'upcoming_link',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'		=> 'Upcoming Heading White',
+				'id'		=> $prefix . 'upcoming_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Upcoming Heading Blue',
+				'id'		=> $prefix . 'upcoming_heading_blue',
+				'type'		=> 'text',
+			),	
+			array(
+				'name'		=> 'Upcoming Text Button',
+				'id'		=> $prefix . 'upcoming_text_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Upcoming Link Button',
+				'id'		=> $prefix . 'upcoming_link_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Upcoming Text EVENT FEATURES',
+				'id'		=> $prefix . 'upcoming_event',
+				'type'		=> 'text',
+			),
 		)
 	);
 	return $meta_boxes;

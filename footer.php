@@ -255,41 +255,53 @@
 	<div class="fb-page" data-href="https://www.facebook.com/ElectricPowerVietnam/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/ElectricPowerVietnam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ElectricPowerVietnam/">Electric &amp; Power Vietnam</a></blockquote></div>
 </div>
 <!-- Lightbox  -->
-<div class="md-modal md-effect-1 md-show" id="md-lightbox">
-	<div class="md-content">
-		<span class="md-close" title="Close Popup">&times;</span>
+<?php
+	if(!isset($_SESSION["lightbox"])){ ?>
+		<div class="md-modal md-effect-1 md-show" id="md-lightbox">
+			<div class="md-content">
+				<span class="md-close" title="Close Popup">&times;</span>
 
-		<div class="md-box">
-			<?php if($epv_options['popup-image'] || $epv_options['popup-image-vi']): ?>
-				<div class="box__left">
-					<img src="<?= changeLang($epv_options['popup-image']['url'],$epv_options['popup-image-vi']['url']);?>" alt="">
-				</div>
-			<?php endif; ?>
-			<div class="box__right">
-				<?php 
-				$popup_post_ID = changeLang($epv_options['popup-post'],$epv_options['popup-post-vi']);
-				global $post;
-				$post = get_post($popup_post_ID);
-				setup_postdata( $post );
-				?>
-				<div class="box__right__heading">
-					<?php the_title(); ?>
-				</div>
+				<div class="md-box">
+					<?php if($epv_options['popup-image'] || $epv_options['popup-image-vi']): ?>
+						<div class="box__left">
+							<img src="<?= changeLang($epv_options['popup-image']['url'],$epv_options['popup-image-vi']['url']);?>" alt="">
+						</div>
+					<?php endif; ?>
+					<div class="box__right">
+						<?php 
+						$popup_post_ID = changeLang($epv_options['popup-post'],$epv_options['popup-post-vi']);
+						global $post;
+						$post = get_post($popup_post_ID);
+						setup_postdata( $post );
+						?>
+						<div class="box__right__heading">
+							<?php the_title(); ?>
+						</div>
 
-				<div class="box__right__text">
-					<?php 
-					$content = get_the_content();
-					echo mb_strimwidth($content, 0, 500, '...');
-					?>
-				</div>
+						<div class="box__right__text">
+							<?php 
+							$content = get_the_content();
+							echo mb_strimwidth(wp_strip_all_tags($content), 0, 300, '...');
+							?>
+						</div>
 
-				<a class="box__right__more" href="<?php the_permalink(); ?>"><?= changeLang('Mode detail','Chi tiết'); ?></a>
-				<?php wp_reset_postdata(); ?>
+						<a class="box__right__more" href="<?php the_permalink(); ?>"><?= changeLang('Mode detail','Chi tiết'); ?></a>
+						<?php wp_reset_postdata(); ?>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
 
-<div class="md-darknight"></div><!-- the overlay element -->
+		<div class="md-darknight"></div><!-- the overlay element -->
+<?php } ?>
+<?php
+	// Starting session
+	session_start();
+	 
+	// Storing session data
+	if(!isset($_SESSION["lightbox"])){
+	    $_SESSION["lightbox"] = "true";
+	}
+?>
 </body>
 </html>

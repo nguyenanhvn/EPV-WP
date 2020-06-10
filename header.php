@@ -96,7 +96,7 @@
 				</div>
 				<div class="right__action">
 					<a class="link__none__bg" href="<?= site_url(); ?>/exhibitor-regulations">
-						<?= changeLang('Register', 'Đăng Ký'); ?>
+						<?= changeLang('Register', 'Tham Quan'); ?>
 					</a>
 					<a class="link__bg" href="<?= site_url(); ?>/book-a-stand">
 						<?= changeLang('Book A Stand', 'Đặt Chỗ'); ?>

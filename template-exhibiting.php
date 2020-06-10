@@ -17,131 +17,77 @@ if(is_page(165) || is_page(323)){
 <section class="content-show">
 	<div class="container">
 		<div class="content-show_box">
-			<h2 class="heading">Show <span>Statistics</span></h2>
+			<h2 class="heading">
+				<?php 
+					$white__title = rwmb_meta('prefix_exhibit-static_heading_white');
+					$blue__title = rwmb_meta('prefix_exhibit-static_heading_blue');
+					echo $white__title;
+					?> <span><?= $blue__title; ?></span>
+			</h2>
 
 			<div class="box__circle box__circle__number__animation">
 				<div class="box__circle__dot">
 					<img src="<?= get_template_directory_uri(); ?>/images/dot-start.png" alt="">
 				</div>
-				<ul class="no-style items">
-					<li data-count="<?= $epv_options['area'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-01.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span><sup>sqm</sup>
-							</div>
-							<div class="text">Exhibition Area</div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['no-of-exhibitors'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-02.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>+
-							</div>
-							<div class="text">No. of Exhibitors</div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['country-regions'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-03.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>
-							</div>
-							<div class="text">Countries/Regions</div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['group-pavillions'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-04.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>
-							</div>
-							<div class="text">Group Pavillions</div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['no-of-visitors'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-05.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>+
-							</div>
-							<div class="text">No. of Visitors</div>
-						</div>
-					</li>
-				</ul>
+
+				<?php 
+					$ads = rwmb_meta('prefix_exhibit-static_groups');
+					if ( ! empty( $ads ) ): ?>
+						<ul class="no-style items">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_exhibit-static_image'] ) ? $ads__item['prefix_exhibit-static_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$number = isset( $ads__item['prefix_exhibit-static_number'] ) ? $ads__item['prefix_exhibit-static_number'] : '';
+							$sub_number = isset( $ads__item['prefix_exhibit-static_sub_number'] ) ? $ads__item['prefix_exhibit-static_sub_number'] : '';
+							$text = isset( $ads__item['prefix_exhibit-static_text'] ) ? $ads__item['prefix_exhibit-static_text'] : '';
+							?>
+							<li data-count="<?= $number ?>">
+								<div class="icon">
+									<img src="<?= $icon ?>" alt="">
+								</div>
+								<div class="paragraph">
+									<div class="number">
+										<span>0</span><?= $sub_number ?>
+									</div>
+									<div class="text"><?= $text ?></div>
+								</div>
+							</li>
+						<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				<div class="box__circle__dot">
 					<img src="<?= get_template_directory_uri(); ?>/images/dot-end.png" alt="">
 				</div>					
 			</div>
 
-			<div class="box__circle__ipad">
-				<ul class="no-style items owl-carousel">
-					<li class="child-1">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-01.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['area'];?><sup>sqm</sup>
-							</div>
-							<div class="text">Exhibition Area</div>
-						</div>
-					</li>
-					<li class="child-2">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-02.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['no-of-exhibitors'];?>+
-							</div>
-							<div class="text">No. of Exhibitors</div>
-						</div>
-					</li>
-					<li class="child-3">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-03.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['country-regions'];?>
-							</div>
-							<div class="text">Countries/Regions</div>
-						</div>
-					</li>
-					<li class="child-4">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-04.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['group-pavillions'];?>
-							</div>
-							<div class="text">Group Pavillions</div>
-						</div>
-					</li>
-					<li class="child-5">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-05.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['no-of-visitors'];?>+
-							</div>
-							<div class="text">No. of Visitors</div>
-						</div>
-					</li>
+			<div class="box__circle__ipad">				
+				<?php 
+					$ads = rwmb_meta('prefix_exhibit-static_groups');
+					if ( ! empty( $ads ) ): ?>
+						<ul class="no-style items owl-carousel">
+						<?php 						
+							$i = 1;
+							foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_exhibit-static_image'] ) ? $ads__item['prefix_exhibit-static_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$number = isset( $ads__item['prefix_exhibit-static_number'] ) ? $ads__item['prefix_exhibit-static_number'] : '';
+							$sub_number = isset( $ads__item['prefix_exhibit-static_sub_number'] ) ? $ads__item['prefix_exhibit-static_sub_number'] : '';
+							$text = isset( $ads__item['prefix_exhibit-static_text'] ) ? $ads__item['prefix_exhibit-static_text'] : '';
+							?>
+							<li class="child-<?= $i ?>">
+								<div class="icon">
+									<img src="<?= $icon ?>" alt="">
+								</div>
+								<div class="paragraph">
+									<div class="number">
+										<span><?= $number ?></span><?= $sub_number ?>
+									</div>
+									<div class="text"><?= $text ?></div>
+								</div>
+							</li>
+						<?php $i++; endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</ul>		
 			</div>
 		</div>
@@ -152,16 +98,19 @@ if(is_page(165) || is_page(323)){
 <section class="content-why">
 	<div class="container">
 		<div class="content-why_box">
-
 			<div class="items">
 				<div class="items__left">
-					<?php
-					$group_list = rwmb_meta('prefix_exhibit-group');
-					$i = 0;
-					?>
 					<h2 class="heading">
-						Why <span>Exhibit ?</span>
+						<?php 
+							$white__title = rwmb_meta('prefix_exhibit-exhibit_heading_white');
+							$blue__title = rwmb_meta('prefix_exhibit-exhibit_heading_blue');
+							echo $white__title;
+							?> <span><?= $blue__title; ?></span>
 					</h2>
+					<?php
+						$group_list = rwmb_meta('prefix_exhibit-group');
+						$i = 0;
+					?>
 					<?php foreach ($group_list as $group_value): 
 						if($i % 2 == 0):
 							$imageID = isset( $group_value['prefix_exhibit-image'] ) ? $group_value['prefix_exhibit-image'] : '';
@@ -227,8 +176,12 @@ if(is_page(165) || is_page(323)){
 			</div>
 			<div class="items items__show__ipad">
 				<div class="items__left">
-					<h2 class="heading">
-						Why <span>Exhibit ?</span>
+					<h2 class="heading">						
+						<?php 
+							$white__title = rwmb_meta('prefix_exhibit-exhibit_heading_white');
+							$blue__title = rwmb_meta('prefix_exhibit-exhibit_heading_blue');
+							echo $white__title;
+							?> <span><?= $blue__title; ?></span>
 					</h2>
 					<?php 
 					$i = 1;
@@ -262,7 +215,24 @@ if(is_page(165) || is_page(323)){
 				</div>
 			</div>
 
-			<?= do_shortcode( '[ads_slide]' ); ?>
+			<div class="box__ads">
+				<?php 
+					$ads = rwmb_meta('prefix_exhibit-exhibit_ads');
+					if ( ! empty( $ads ) ): ?>
+						<div class="ads__slider owl-carousel">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_exhibit-image'] ) ? $ads__item['prefix_exhibit-image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$link = $ads__item['prefix_exhibit-link'];
+							?>
+							<a href="<?= $link; ?>" title="" target="_blank">
+								<img src="<?= $icon ?>" alt="">
+							</a>	
+						<?php endforeach; ?>
+						</div>
+						<!-- <span>ADVERTISING</span> -->
+					<?php endif; ?>				
+			</div>
 		</div>
 	</div>
 </section> <!-- /Content Why Exhibit -->
@@ -328,8 +298,25 @@ if(is_page(165) || is_page(323)){
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<?= do_shortcode( '[ads_slide]' ); ?>
+		<div class="container">				
+			<div class="box__ads">
+				<?php 
+					$ads = rwmb_meta('prefix_exhibit-visitor_ads');
+					if ( ! empty( $ads ) ): ?>
+						<div class="ads__slider owl-carousel">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_exhibit-visitor_image'] ) ? $ads__item['prefix_exhibit-visitor_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$link = $ads__item['prefix_exhibit-visitor_link'];
+							?>
+							<a href="<?= $link; ?>" title="" target="_blank">
+								<img src="<?= $icon ?>" alt="">
+							</a>	
+						<?php endforeach; ?>
+						</div>
+						<!-- <span>ADVERTISING</span> -->
+					<?php endif; ?>				
+			</div>
 		</div>
 	</div>
 </section> <!-- /Content Catalogue -->
@@ -338,7 +325,13 @@ if(is_page(165) || is_page(323)){
 <section class="content-profile">
 	<div class="container">
 		<div class="content-profile_box">
-			<h2 class="heading">Visitor <span>Profiles</span></h2>
+			<h2 class="heading">				
+				<?php 
+					$white__title = rwmb_meta('prefix_exhibit-visitor_heading_white');
+					$blue__title = rwmb_meta('prefix_exhibit-visitor_heading_blue');
+					echo $white__title;
+					?> <span><?= $blue__title; ?></span>
+			</h2>
 
 			<div class="items">
 				<?php 
@@ -367,8 +360,12 @@ if(is_page(165) || is_page(323)){
 
 			<div class="clearfix"></div>
 
-			<a class="view__more" href="<?= site_url(); ?>/visitor-profiles">
-				Discover Full List Of Visitor Profiles
+			<?php 
+				$link = rwmb_meta('prefix_exhibit-visitor_link_button');
+				$text = rwmb_meta('prefix_exhibit-visitor_text_button');
+			?>
+			<a class="view__more" href="<?= $link ?>">
+				<?= $text ?>
 			</a>
 		</div>
 	</div>
@@ -379,7 +376,13 @@ if(is_page(165) || is_page(323)){
 	<div class="content-testimonials_top">
 		<div class="container">
 			<div class="content-testimonials_box">
-				<h2 class="heading">Our Exhibitors' <span>Testimonials</span></h2>
+				<h2 class="heading">
+					<?php 
+						$white__title = rwmb_meta('prefix_exhibit-testimonial_heading_white');
+						$blue__title = rwmb_meta('prefix_exhibit-testimonial_heading_blue');
+						echo $white__title;
+						?> <span><?= $blue__title; ?></span>
+				</h2>
 				<div class="box__left">
 					<div class="item__avatar__main">
 						<?php 
@@ -399,7 +402,13 @@ if(is_page(165) || is_page(323)){
 				</div>
 
 				<div class="box__right">
-					<h2 class="heading">Our Exhibitors' <span>Testimonials</span></h2>
+					<h2 class="heading">
+						<?php 
+							$white__title = rwmb_meta('prefix_exhibit-testimonial_heading_white');
+							$blue__title = rwmb_meta('prefix_exhibit-testimonial_heading_blue');
+							echo $white__title;
+							?> <span><?= $blue__title; ?></span>
+					</h2>
 
 					<div class="item__reviews">
 						<?php
@@ -411,7 +420,7 @@ if(is_page(165) || is_page(323)){
 								$testimonial_info = $testimonial_value['prefix_exhibit-testimonial_paragraph'];?>
 								<div class="item__review">
 									<div class="item__comment">
-										<?= wpautop( $testimonial_info ); ?>									
+										<?= wpautop( $testimonial_info ); ?>	
 									</div>
 									<div class="item__info">
 										<div class="item__name"><?= $testimonial_title; ?></div>
@@ -443,7 +452,24 @@ if(is_page(165) || is_page(323)){
 
 	<div class="content-testimonials_bottom">
 		<div class="container">		
-			<?= do_shortcode( '[ads_slide]' ); ?>
+			<div class="box__ads">
+				<?php 
+					$ads = rwmb_meta('prefix_exhibit-testimonial_ads');
+					if ( ! empty( $ads ) ): ?>
+						<div class="ads__slider owl-carousel">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_exhibit-testimonial_image'] ) ? $ads__item['prefix_exhibit-testimonial_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$link = $ads__item['prefix_exhibit-testimonial_link'];
+							?>
+							<a href="<?= $link; ?>" title="" target="_blank">
+								<img src="<?= $icon ?>" alt="">
+							</a>	
+						<?php endforeach; ?>
+						</div>
+						<!-- <span>ADVERTISING</span> -->
+					<?php endif; ?>				
+			</div>
 		</div>
 	</div>
 </section> <!-- /Content Testimonials -->
@@ -454,14 +480,29 @@ if(is_page(165) || is_page(323)){
 		<div class="container">
 			<div class="content-upcoming_box">
 				<div class="box__top">
-					<h2 class="heading">Upcoming <span>Events</span></h2>
+					<h2 class="heading">									
+						<?php 
+							$white__title = rwmb_meta('prefix_exhibit-upcoming_heading_white');
+							$blue__title = rwmb_meta('prefix_exhibit-upcoming_heading_blue');
+							echo $white__title;
+							?> <span><?= $blue__title; ?></span>
+					</h2>
 
-					<a class="view__all" href="<?= site_url();?>/new-media/event-news/">
-						View All Events
+					<?php 
+						$link = rwmb_meta('prefix_exhibit-upcoming_link_button');
+						$text = rwmb_meta('prefix_exhibit-upcoming_text_button');
+					?>
+					<a class="view__all" href="<?= $link ?>">
+						<?= $text ?>
 					</a>
 				</div>
 
-				<div class="box__bottom" text="EVENT FEATURES">
+				<div class="clearfix"></div>
+
+				<?php 
+					$event = rwmb_meta('prefix_exhibit-upcoming_event');
+				?>
+				<div class="box__bottom" text="<?= $event ?>">
 					<?php 
 					global $post;
 					$post = get_post($epv_options['event-main-post']);
@@ -523,8 +564,25 @@ if(is_page(165) || is_page(323)){
 	</div>
 
 	<div class="content-upcoming_bottom">
-		<div class="container">
-			<?= do_shortcode( '[ads_slide]' ); ?>
+		<div class="container">	
+			<div class="box__ads">
+				<?php 
+					$ads = rwmb_meta('prefix_exhibit-upcoming_ads');
+					if ( ! empty( $ads ) ): ?>
+						<div class="ads__slider owl-carousel">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_exhibit-upcoming_image'] ) ? $ads__item['prefix_exhibit-upcoming_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$link = $ads__item['prefix_exhibit-upcoming_link'];
+							?>
+							<a href="<?= $link; ?>" title="" target="_blank">
+								<img src="<?= $icon ?>" alt="">
+							</a>	
+						<?php endforeach; ?>
+						</div>
+						<!-- <span>ADVERTISING</span> -->
+					<?php endif; ?>				
+			</div>
 		</div>
 	</div>
 </section> <!-- /Content Upcoming -->
