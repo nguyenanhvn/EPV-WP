@@ -9,7 +9,13 @@ global $des_options;
 <section class="content-book">
 	<div class="container">
 		<div class="content-book_box">
-			<h1 class="heading">Book <span>a Stand</span></h1>
+			<?php 
+				$blue = rwmb_meta('prefix_bookAStandListing-blue_heading');
+				$white = rwmb_meta('prefix_bookAStandListing-white_heading');
+				$url = rwmb_meta('prefix_bookAStandListing-url');
+				$text = rwmb_meta('prefix_bookAStandListing-text');
+			?>
+			<h1 class="heading"><?= $white; ?> <span><?= $blue; ?></span></h1>
 
 			<div class="items book__slider owl-carousel">
 				<?php 
@@ -32,8 +38,8 @@ global $des_options;
 									<div class="item__rate">
 										<?= wpautop( $content ); ?>
 									</div>
-									<a href="<?= site_url(); ?>/application-form-book-a-stand" class="item__book">
-										+ Book now
+									<a href="<?= $url ?>" class="item__book">
+										<?= $text ?>
 									</a>
 								</div>
 							</div>

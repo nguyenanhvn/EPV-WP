@@ -9,8 +9,13 @@ global $des_options;
 <section class="content-book">
 	<div class="container">
 		<div class="content-book_box">
-			<h1 class="heading">E-<span>Brochures</span></h1>
-
+			<?php 
+				$blue = rwmb_meta('prefix_eBrochureListing-blue_heading');
+				$white = rwmb_meta('prefix_eBrochureListing-white_heading');
+				$url = rwmb_meta('prefix_eBrochureListing-url');
+				$text = rwmb_meta('prefix_eBrochureListing-text');
+			?>
+			<h1 class="heading"><?= $white; ?> <span><?= $blue; ?></span></h1>
 			<div class="items book__slider owl-carousel">
 				<?php 
 				$args = array(
@@ -19,7 +24,7 @@ global $des_options;
 				$query = new WP_Query($args);
 				if($query->have_posts()):
 					while($query->have_posts()): $query->the_post();
-						$content = rwmb_meta('prefix_ebrochures-paragraph');
+						$content = rwmb_meta('prefix_brochure-paragraph');
 						?>
 						<div class="item">
 							<div class="item__img">
@@ -32,8 +37,8 @@ global $des_options;
 									<div class="item__rate">
 										<?= wpautop( $content ); ?>
 									</div>
-									<a href="<?= site_url(); ?>/application-form-e-brochure" class="item__book">
-										+ Book now
+									<a href="<?= $url ?>" class="item__book">
+										<?= $text ?>
 									</a>
 								</div>
 							</div>

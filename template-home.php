@@ -384,6 +384,8 @@ global $epv_options; ?>
 					</a>
 				</div>
 
+				<div class="clearfix"></div>
+
 				<div class="box__bottom" text="EVENT FEATURES">
 					<?php 
 					global $post;

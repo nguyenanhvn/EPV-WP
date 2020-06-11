@@ -663,6 +663,7 @@ jQuery(window).resize(function(event) {
 		swipe: true,
 		speed: 1000,
 		dots: false,
+		slidesToShow: 3,
 		responsive: [
 		{
 			breakpoint: 1920,

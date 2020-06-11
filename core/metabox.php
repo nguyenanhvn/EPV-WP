@@ -898,6 +898,78 @@ function exhibit_meta_boxes( $meta_boxes ) {
 	);
 	return $meta_boxes;
 }
+// E-BROCHURE LISTING TEMPLATE METABOX
+add_filter( 'rwmb_meta_boxes', 'eBrochureListing_meta_boxes' );
+function eBrochureListing_meta_boxes( $meta_boxes ) {
+	$prefix = "prefix_eBrochureListing-";
+	$meta_boxes[] = array(
+		'title'      => 'Template EB Option',
+		'post_types' => 'page',
+		'context' => 'after_title',
+		'include'   => array(
+			'template'    => array( 'template-eBrochures.php'),
+		),
+		'fields' => array(
+			array(
+				'name'             => 'Heading White',
+				'id'               => $prefix . 'white_heading',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Heading Blue',
+				'id'               => $prefix . 'blue_heading',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'URL Button',
+				'id'               => $prefix . 'url',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Text Button',
+				'id'               => $prefix . 'text',
+				'type'             => 'text',
+			)
+		)
+	);
+	return $meta_boxes;
+}
+// BOOK A STAND LISTING TEMPLATE METABOX
+add_filter( 'rwmb_meta_boxes', 'bookAStandListing_meta_boxes' );
+function bookAStandListing_meta_boxes( $meta_boxes ) {
+	$prefix = "prefix_bookAStandListing-";
+	$meta_boxes[] = array(
+		'title'      => 'Template BAS Option',
+		'post_types' => 'page',
+		'context' => 'after_title',
+		'include'   => array(
+			'template'    => array( 'template-bookAStand.php'),
+		),
+		'fields' => array(
+			array(
+				'name'             => 'Heading White',
+				'id'               => $prefix . 'white_heading',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Heading Blue',
+				'id'               => $prefix . 'blue_heading',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'URL Button',
+				'id'               => $prefix . 'url',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Text Button',
+				'id'               => $prefix . 'text',
+				'type'             => 'text',
+			)
+		)
+	);
+	return $meta_boxes;
+}
 // APPLICATION FORM E-BROCHURE TEMPLATE METABOX
 add_filter( 'rwmb_meta_boxes', 'appEBrochure_meta_boxes' );
 function appEBrochure_meta_boxes( $meta_boxes ) {
@@ -911,6 +983,16 @@ function appEBrochure_meta_boxes( $meta_boxes ) {
 		),
 		'fields' => array(
 			array(
+				'name'             => 'Heading White',
+				'id'               => $prefix . 'white_heading',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Heading Blue',
+				'id'               => $prefix . 'blue_heading',
+				'type'             => 'text',
+			),
+			array(
 				'name'             => 'Blue Text',
 				'id'               => $prefix . 'blue_title',
 				'type'             => 'text',
@@ -918,6 +1000,11 @@ function appEBrochure_meta_boxes( $meta_boxes ) {
 			array(
 				'name'             => 'White Text',
 				'id'               => $prefix . 'white_title',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Shortcode Form',
+				'id'               => $prefix . 'shortcode',
 				'type'             => 'text',
 			),
 			array(
@@ -947,6 +1034,16 @@ function appBookAStand_meta_boxes( $meta_boxes ) {
 		),
 		'fields' => array(
 			array(
+				'name'             => 'Heading White',
+				'id'               => $prefix . 'white_heading',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Heading Blue',
+				'id'               => $prefix . 'blue_heading',
+				'type'             => 'text',
+			),
+			array(
 				'name'             => 'Blue Text',
 				'id'               => $prefix . 'blue_title',
 				'type'             => 'text',
@@ -954,6 +1051,11 @@ function appBookAStand_meta_boxes( $meta_boxes ) {
 			array(
 				'name'             => 'White Text',
 				'id'               => $prefix . 'white_title',
+				'type'             => 'text',
+			),
+			array(
+				'name'             => 'Shortcode Form',
+				'id'               => $prefix . 'shortcode',
 				'type'             => 'text',
 			),
 			array(

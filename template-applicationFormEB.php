@@ -6,12 +6,15 @@ get_header(); ?>
 <section class="content-application" style="background-image: url(<?= get_template_directory_uri(); ?>/images/bg-form.jpg);">
 	<div class="container">
 		<div class="content-application_box">
-			<h1 class="heading">Application <span>Form</span></h1>
 			<?php 
-			$blue_title = rwmb_meta('prefix_brochure-blue_title');
-			$white_title = rwmb_meta('prefix_brochure-white_title');
-			$agree_text = rwmb_meta('prefix_brochure-agree_text');
+			$blue = rwmb_meta('prefix_appEBrochure-blue_heading');
+			$white = rwmb_meta('prefix_appEBrochure-white_heading');
+			$blue_title = rwmb_meta('prefix_appEBrochure-blue_title');
+			$white_title = rwmb_meta('prefix_appEBrochure-white_title');
+			$shortcode = rwmb_meta('prefix_appEBrochure-shortcode');
+			$agree_text = rwmb_meta('prefix_appEBrochure-agree_text');
 			?>
+			<h1 class="heading"><?= $white; ?> <span><?= $blue; ?></span></h1>
 			<div class="box__blue">
 				<div class="text__blue">
 					<?= $blue_title; ?>
@@ -22,7 +25,7 @@ get_header(); ?>
 				</div>
 
 				<div class="form">
-					<?= do_shortcode( '[contact-form-7 id="191" title="Application Form E-Brochure"]' ); ?>
+					<?= do_shortcode( $shortcode ); ?>
 					<div class="group">
 						<div class="noted">
 							<?= wpautop( $agree_text ); ?>

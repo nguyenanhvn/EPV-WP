@@ -35,10 +35,10 @@ if(is_page(197) || is_page(174)){
 					<?php the_content(); ?>
 				</div>
 
-				<div class="content__detail__bottom">
 					<?php 
 					$post_tags = get_the_tags();
 					if ( $post_tags ) :?>
+					<div class="content__detail__bottom">
 						<div class="content__detail__tags">
 							<span>Tags:</span>
 							<ul class="no-style">
@@ -49,8 +49,8 @@ if(is_page(197) || is_page(174)){
 								?>
 							</ul>
 						</div>
+					</div>
 					<?php endif;?>
-				</div>
 			</div>
 
 			<div class="content__sidebar">
