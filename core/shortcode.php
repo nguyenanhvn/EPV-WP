@@ -12,7 +12,6 @@ function ads_shortcode() {
                 }
         }
         $output .= "</div>";
-        $output .= "<span>ADVERTISING</span>";
         $output .= "</div>";
         return $output;
 }

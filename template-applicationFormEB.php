@@ -36,4 +36,22 @@ get_header(); ?>
 		</div>
 	</div>
 </section>
+
+<script>
+	jQuery(document).ready(function($) {	        
+        $('.selectbox__radio input').each(function(key, val) {
+            bookType = getUrlParameter('type');
+            if ($(this).val() == bookType) {
+                $(this).addClass('nf-checked');
+                $(this).trigger('click');
+            }
+        });
+	});
+	function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+</script>
 <?php get_footer(); ?>

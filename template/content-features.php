@@ -40,13 +40,17 @@
 			<div class="items">
 				<?php if(have_posts()):
 					while(have_posts()): the_post(); ?>
+						<?php 
+							$day = rwmb_meta('prefix_event-time_day'); 
+							$text = rwmb_meta('prefix_event-time_my_text'); 
+						?>
 						<div class="item">
 							<div class="item__img" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
 								<img src="<?php the_post_thumbnail_url('270x350'); ?>" alt="">
 							</div>
 							<div class="item__box">
 								<div class="item__date">
-									<strong><?= get_the_date('d'); ?></strong> <span><?= get_the_date('M Y'); ?></span>
+									<strong><?= $day ?></strong> <span><?= $text ?></span>
 								</div>
 								<div class="item__caption">
 									<h3 class="item__heading">

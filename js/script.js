@@ -21,11 +21,8 @@ jQuery(document).ready(function() {
 		);
 	wow.init();
 // NEWFEED CLICK 
-jQuery(document).on('click touchstart','.sticky-fanpage h3',function(event){   
+jQuery(document).on('click touchstart','.sticky-fanpage h3, .closeFrame',function(event){   
 	jQuery(".sticky-fanpage").toggleClass('active');
-});
-jQuery(document).on('click touchstart','.closeFrame',function(event){   
-	jQuery(this).parent(".sticky-fanpage").remove();
 });
 //SHOW AND HIDE LIGHBOX
 jQuery(document).on('click','.md-trigger',function(event){    	
@@ -331,7 +328,7 @@ jQuery(window).resize(function(event) {
 
 	if(jQuery('.content-banner-slide').length > 0){
 		jQuery('.content-banner-slide').owlCarousel({
-			loop:true,
+			loop: false,
 			autoplayTimeout:7000,
 			nav: false,
 			autoplay: true,
@@ -347,7 +344,7 @@ jQuery(window).resize(function(event) {
 	}
 	if(jQuery('.industry-slide').length > 0){
 		jQuery('.industry-slide').owlCarousel({
-			loop:true,
+			loop: false,
 			autoplayTimeout:7000,
 			nav: false,
 			autoplay: true,
@@ -444,7 +441,7 @@ jQuery(window).resize(function(event) {
 
 	if(jQuery('.news__slider').length > 0){
 		jQuery('.news__slider').owlCarousel({
-			loop:true,
+			loop: false,
 			margin: 10,
 			autoplayTimeout:5000,
 			nav: true,
@@ -470,13 +467,24 @@ jQuery(window).resize(function(event) {
 					items: 3,
 					slideBy: 3,
 				},
-			},
+			},			
+		    onInitialized: setOwlStageHeight,
+		    onResized: setOwlStageHeight,
+		    onTranslated: setOwlStageHeight
 		});
+	    function setOwlStageHeight(event) {
+		    var maxHeight = 0;
+		    jQuery('.news__slider .owl-item').each(function () { // LOOP THROUGH ACTIVE ITEMS
+		        var thisHeight = parseInt( jQuery(this).height() );
+		        maxHeight=(maxHeight>=thisHeight?maxHeight:thisHeight);
+		    });
+		    jQuery('.news__slider .owl-item .item__caption').css('height', (maxHeight - 180) );
+		}	
 	}
 
 	if(jQuery('.book__slider').length > 0){
 		jQuery('.book__slider').owlCarousel({
-			loop:true,
+			loop: false,
 			margin: 30,
 			autoplayTimeout:5000,
 			nav: true,

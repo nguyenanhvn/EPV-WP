@@ -6,15 +6,10 @@ get_header();
 global $des_options;
 ?>
 <?php 
-if(is_page(195) || is_page(203)){
-	echo do_shortcode( '[needtoknow_menu]' );
-}
-if(is_page(201) || is_page(199)){
-	echo do_shortcode( '[exhibit_menu]' );
-}
-if(is_page(197) || is_page(174)){
-	echo do_shortcode( '[visiting_menu]' );
-}
+	$shortcode = rwmb_meta('prefix_directory_shortcode');
+	if ($shortcode) {		
+		echo do_shortcode('[' .$shortcode. ']');
+	}
 ?>
 <section class="content-breadcrumb">
 	<div class="container">
@@ -34,11 +29,10 @@ if(is_page(197) || is_page(174)){
 				<div class="content__detail__paragraph">
 					<?php the_content(); ?>
 				</div>
-
+				<div class="content__detail__bottom">
 					<?php 
 					$post_tags = get_the_tags();
-					if ( $post_tags ) :?>
-					<div class="content__detail__bottom">
+						if ( $post_tags ) :?>
 						<div class="content__detail__tags">
 							<span>Tags:</span>
 							<ul class="no-style">
@@ -49,44 +43,57 @@ if(is_page(197) || is_page(174)){
 								?>
 							</ul>
 						</div>
+						<?php endif;?>
+					<div class="content__detail__share">
+						<span><?= changeLang('share','Chia sẻ'); ?></span>
+
+						<ul class="no-style">
+							<li>
+	                            <a href="https://www.facebook.com/sharer/sharer.php?u=<?=get_permalink()?>" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;" title=""><i class="fa fa-facebook"></i></a>
+	                        </li>
+	                        <li>
+	                            <a href="https://twitter.com/share?url=<?=get_permalink()?>&text=<?=the_title()?>" onclick="window.open(this.href, 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;" title=""><i class="fa fa-twitter"></i></a>
+	                        </li>
+						</ul>
 					</div>
-					<?php endif;?>
+				</div>
 			</div>
 
 			<div class="content__sidebar">
 				<div class="content__widget">
-					<h3>Latest Brochure</h3>
+					<h3><?= changeLang("Latest Brochures","Tài liệu mới nhất"); ?></h3>
 					<ul class="content__widget__download">
 						<?php 
 						global $post;
-						$brochureList = $epv_options['ebrochure-post'];
+						$brochureList = changeLang($epv_options['ebrochure-post'], $epv_options['ebrochure-post-vi']);
 						foreach ($brochureList as $brochureValue):
 							$post = get_post($brochureValue);
 							setup_postdata($post);  
+							$content = rwmb_meta('prefix_brochure-paragraph');
 							?>
 							<li>                        
 								<div class="thumbnail">
-									<a>
+									<a href="<?= site_url(); ?>/<?= changeLang("application-form-e-brochure/","vi/mau-don-dien-tu/") ?>?type=<?php the_title(); ?>" rel="bookmark" title="">
 										<img src="<?php the_post_thumbnail_url(); ?>">
 									</a>
 								</div>
 
 								<div class="widget_recent_entry">	             			
 									<h4 class="title-post">
-										<a rel="bookmark" title="">
+										<a href="<?= site_url(); ?>/<?= changeLang("application-form-e-brochure/","vi/mau-don-dien-tu/") ?>?type=<?php the_title(); ?>" rel="bookmark" title="">
 											<?php the_title(); ?>
 										</a>
 									</h4>
-									<!-- <div class="download">
-										PDF file - 12Mb
-									</div> -->
+									<div class="download">
+										<?= wpautop( $content ); ?>
+									</div>
 								</div>
 							</li>
 						<?php endforeach; ?>
 					</ul>
 
-					<a class="more" href="<?= site_url(); ?>/e-brochures">
-						Download More Brochures
+					<a class="more" href="<?= site_url(); ?>/<?= changeLang("e-brochures","vi/tai-lieu-trien-lam/"); ?>">
+						<?= changeLang("Download More Brochures","Download thêm tài liệu"); ?>
 					</a>
 				</div>
 

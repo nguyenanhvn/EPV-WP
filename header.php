@@ -95,10 +95,10 @@
 					<?= get_search_form(); ?>
 				</div>
 				<div class="right__action">
-					<a class="link__none__bg" href="<?= site_url(); ?>/exhibitor-regulations">
+					<a class="link__none__bg" href="<?= site_url(); ?>/<?= changeLang('visit/pre-registration-group-delegation-programme/', 'vi/dang-ky-truoc/'); ?>">
 						<?= changeLang('Register', 'Tham Quan'); ?>
 					</a>
-					<a class="link__bg" href="<?= site_url(); ?>/book-a-stand">
+					<a class="link__bg" href="<?= site_url(); ?>/<?= changeLang('book-a-stand/', 'vi/dat-gian-hang/'); ?>">
 						<?= changeLang('Book A Stand', 'Đặt Chỗ'); ?>
 					</a>
 				</div>

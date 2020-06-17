@@ -447,40 +447,6 @@ $this->sections[] = array(
         ),                  
     ),
 );
-
-$this->sections[] = array(
-    'title'     => __('Statistics', 'epv'),
-    'desc'      => __('This is Statistics Customize!', 'epv'),
-    'icon'      => 'el el-tasks',
-// 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
-    'fields'    => array(                    
-        array(
-            'id'        => 'area',
-            'type'      => 'text',
-            'title'     => __('Exhibition Area', 'epv'),
-        ),                   
-        array(
-            'id'        => 'no-of-exhibitors',
-            'type'      => 'text',
-            'title'     => __('No. of Exhibitors', 'epv'),
-        ),                   
-        array(
-            'id'        => 'country-regions',
-            'type'      => 'text',
-            'title'     => __('Countries/Regions', 'epv'),
-        ),                     
-        array(
-            'id'        => 'group-pavillions',
-            'type'      => 'text',
-            'title'     => __('Group Pavillions', 'epv'),
-        ), 
-        array(
-            'id'        => 'no-of-visitors',
-            'type'      => 'text',
-            'title'     => __('No. of Visitors', 'epv'),
-        ),    
-    ),
-);
 $this->sections[] = array(
     'title'     => __('Upcoming Event', 'epv'),
     'desc'      => __('This is Event Customize!', 'epv'),
@@ -490,14 +456,14 @@ $this->sections[] = array(
             'id'       => 'event-main-post',
             'type'     => 'select',
             'data'     => 'posts',
-            'args'     => array('post_type' => 'post','cat' => 15,'posts_per_page' => -1),
+            'args'     => array('post_type' => 'post','cat' => 36,'posts_per_page' => -1),
             'title'    => __('Event First Post', 'epv'),
         ),
         array(
             'id'       => 'event-other-post',
             'type'     => 'select',
             'data'     => 'posts',
-            'args'     => array('post_type' => 'post','cat' => 15,'posts_per_page' => -1),
+            'args'     => array('post_type' => 'post','cat' => 36,'posts_per_page' => -1),
             'title'    => __('Other Event Post', 'epv'),
             'multi'    => true,
         ),  
@@ -505,15 +471,15 @@ $this->sections[] = array(
             'id'       => 'event-main-post-vi',
             'type'     => 'select',
             'data'     => 'posts',
-            'args'     => array('post_type' => 'post','cat' => 17,'posts_per_page' => -1),
-            'title'    => __('Event First Post', 'epv'),
+            'args'     => array('post_type' => 'post','cat' => 49,'posts_per_page' => -1),
+            'title'    => __('Bài event lớn', 'epv'),
         ),
         array(
-            'id'       => 'event-other-post',
+            'id'       => 'event-other-post-vi',
             'type'     => 'select',
             'data'     => 'posts',
-            'args'     => array('post_type' => 'post','cat' => 17,'posts_per_page' => -1),
-            'title'    => __('Other Event Post', 'epv'),
+            'args'     => array('post_type' => 'post','cat' => 49,'posts_per_page' => -1),
+            'title'    => __('Các bài event nhỏ', 'epv'),
             'multi'    => true,
         ),  
     ),

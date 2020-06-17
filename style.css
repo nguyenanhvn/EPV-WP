@@ -18,6 +18,10 @@ div.wpcf7-response-output{
 	width: 100%;
 	max-height: 450px;
 }
+.sticky-fanpage.active .closeFrame{
+	opacity: 1;
+	visibility: visible;
+}
 .sticky-fanpage .closeFrame{
 	position: absolute;
 	width: 40px;
@@ -30,6 +34,8 @@ div.wpcf7-response-output{
 	z-index: 2;
 	line-height: 40px;
 	color: #fff;
+	opacity: 0;
+	visibility: hidden;
 }
 .sticky-fanpage h3{
 	position: relative;

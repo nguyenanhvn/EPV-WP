@@ -5,7 +5,8 @@
 		<ul class="content__widget__news">
 			<?php 
 			global $post;
-			foreach ($epv_options['must-read'] as $objPost):
+			$mustRead = changeLang($epv_options['must-read'], $epv_options['must-read-vi']);
+			foreach ($mustRead as $objPost):
 				$post = get_post($objPost);
 				setup_postdata($post);?>
 				<li>                        

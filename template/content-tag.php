@@ -1,17 +1,3 @@
-<?php if(is_category(1) 
-	|| is_category(15) 
-	|| is_category(42) 
-	|| is_category(40) 
-	|| is_category(11)
-	|| is_category(45)
-	|| is_category(13)
-	|| is_category(7)
-	|| is_category(17)
-	|| is_category(47)
-){
-	echo do_shortcode( '[newmedia_menu]' );
-} ?>
-
 <!-- Content Breadcrumb -->
 <section class="content-breadcrumb">
 	<div class="container">
@@ -24,15 +10,7 @@
 	<div class="container">
 		<div class="content-news_box">
 			<h2 class="heading">
-				<?php 
-				$pieces = explode(" ",single_cat_title("",false));
-				for ($i = 0; $i <= count($pieces) - 1; $i++) {
-					if($i == (count($pieces) - 1))
-						printf(" <span>%s</span>",$pieces[$i]);
-					else
-						echo $pieces[$i];
-				}
-				?>
+				Tag: <span><?= single_cat_title() ?></span>
 			</h2>
 
 			<div class="clearfix"></div>

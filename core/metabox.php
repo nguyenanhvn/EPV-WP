@@ -111,12 +111,67 @@ function home_meta_boxes( $meta_boxes ) {
 		'context' => 'after_title',
 		'fields' => array(
 			array(
+				'name'       => 'Box Announcement',
+				'type'       => 'heading',
+			),
+			array(
 				'name'       => 'Announcement',
 				'type'       => 'post',
 				'id'		 => $prefix . 'announcement',
 				'post_type'	 => 'post',
 				'ajax'		 => true,
 				'multiple'	 => true,
+			),
+			array(
+				'name'       => 'Box Static',
+				'type'       => 'heading',
+			),
+			array(
+				'name'		=> 'Static Heading White',
+				'id'		=> $prefix . 'static_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Static Heading Blue',
+				'id'		=> $prefix . 'static_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'Static Groups',
+				'id'         => $prefix . 'static_groups',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 5,
+				'fields' => array(
+					array(
+						'name'    => 'Image',
+						'id'      => $prefix . 'static_image',
+						'type'    => 'single_image',
+					),
+					array(
+						'name'    => 'Number',
+						'id'      => $prefix . 'static_number',
+						'type'    => 'text',
+					),
+					array(
+						'name'    => 'Sub Number',
+						'id'      => $prefix . 'static_sub_number',
+						'type'    => 'text',
+					),
+					array(
+						'name'    => 'Text',
+						'id'      => $prefix . 'static_text',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'       => 'Box Exhibit',
+				'type'       => 'heading',
 			),
 			array(
 				'name'       => 'Why Exhibit',
@@ -248,6 +303,125 @@ function home_meta_boxes( $meta_boxes ) {
 					),
 				),
 			),
+
+			array(
+				'name'       => 'Grid Ads',
+				'id'         => $prefix . 'grid_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'link',
+						'type'    => 'text',
+					),
+				),
+			),
+
+			array(
+				'name'       => 'Box Upcoming',
+				'type'       => 'heading',
+			),
+			array(
+				'name'		=> 'Upcoming Heading White',
+				'id'		=> $prefix . 'upcoming_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Upcoming Heading Blue',
+				'id'		=> $prefix . 'upcoming_heading_blue',
+				'type'		=> 'text',
+			),	
+			array(
+				'name'		=> 'Upcoming Text Button',
+				'id'		=> $prefix . 'upcoming_text_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Upcoming Link Button',
+				'id'		=> $prefix . 'upcoming_link_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Upcoming Text EVENT FEATURES',
+				'id'		=> $prefix . 'upcoming_event',
+				'type'		=> 'text',
+			),
+
+			array(
+				'name'       => 'Box News & Update',
+				'type'       => 'heading',
+			),
+			array(
+				'name'		=> 'News & Update Heading White',
+				'id'		=> $prefix . 'news_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'News & Update Heading Blue',
+				'id'		=> $prefix . 'news_heading_blue',
+				'type'		=> 'text',
+			),
+
+			array(
+				'name'		=> 'News & Update Text Button',
+				'id'		=> $prefix . 'news_text',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'News & Update Link Button',
+				'id'		=> $prefix . 'news_link',
+				'type'		=> 'text',
+			),
+
+
+			array(
+				'name'       => 'Box Media',
+				'type'       => 'heading',
+			),
+			array(
+				'name'       => 'Media Ads',
+				'id'         => $prefix . 'media_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'link',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'		=> 'Media Heading White',
+				'id'		=> $prefix . 'media_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Media Heading Blue',
+				'id'		=> $prefix . 'media_heading_blue',
+				'type'		=> 'text',
+			),
 		)
 );
 return $meta_boxes;
@@ -265,6 +439,31 @@ function event_meta_boxes( $meta_boxes ) {
 				'name'       => 'Locate',
 				'id'         => $prefix . 'locate',
 				'type'       => 'text',
+			),
+			array(
+				'name'       => 'Time Number ( Day )',
+				'id'         => $prefix . 'time_day',
+				'type'       => 'text',
+			),
+			array(
+				'name'       => 'Time Number ( Month / Year )',
+				'id'         => $prefix . 'time_my',
+				'type'       => 'text',
+			),
+			array(
+				'name'       => 'Time Text ( Month Year )',
+				'id'         => $prefix . 'time_my_text',
+				'type'       => 'text',
+			),
+			array(
+				'name'       => 'Time Text Full',
+				'id'         => $prefix . 'time_text',
+				'type'       => 'text',
+			),
+			array(
+				'name'       => 'Image Detail Page',
+				'id'         => $prefix . 'image',
+				'type'       => 'single_image',
 			),
 		)
 	);
@@ -1072,6 +1271,35 @@ function appBookAStand_meta_boxes( $meta_boxes ) {
 	);
 	return $meta_boxes;
 }
+// Exhibit Directory TEMPLATE METABOX
+add_filter( 'rwmb_meta_boxes', 'directory_meta_boxes' );
+function directory_meta_boxes( $meta_boxes ) {
+	$prefix = "prefix_directory_";
+	$meta_boxes[] = array(
+		'title'      => 'Page Option',
+		'post_types' => 'page',
+		'include'   => array(
+			'template'    => array( 'template-exhibitor-directory.php'),
+		),
+		'context' => 'after_title',
+		'fields' => array(
+			array(
+				'name'		=> 'Shortcode menu',
+				'id'		=> $prefix . 'shortcode',
+				'type'		=> 'select_advanced',
+			    'options'         => array(
+			        'exhibit_menu'       	=> 'Exhibit Menu',
+			        'visiting_menu' 		=> 'Visiting Menu',
+			        'needtoknow_menu'       => 'NeedToKnow Menu',
+			        'contact_menu'     		=> 'Contact Menu',
+			        'newmedia_menu' 		=> 'New Media Menu',
+			    ),
+			    'placeholder'     => 'Select an menu',
+			),
+		)
+	);
+	return $meta_boxes;
+}
 // ABOUT TEMPLATE METABOX
 add_filter( 'rwmb_meta_boxes', 'about_meta_boxes' );
 function about_meta_boxes( $meta_boxes ) {
@@ -1084,6 +1312,19 @@ function about_meta_boxes( $meta_boxes ) {
 		),
 		'context' => 'after_title',
 		'fields' => array(
+			array(
+				'name'		=> 'Shortcode menu',
+				'id'		=> $prefix . 'shortcode',
+				'type'		=> 'select_advanced',
+			    'options'         => array(
+			        'exhibit_menu'       	=> 'Exhibit Menu',
+			        'visiting_menu' 		=> 'Visiting Menu',
+			        'needtoknow_menu'       => 'NeedToKnow Menu',
+			        'contact_menu'     		=> 'Contact Menu',
+			        'newmedia_menu' 		=> 'New Media Menu',
+			    ),
+			    'placeholder'     => 'Select an menu',
+			),
 			array(
 				'name'		=> 'Top Head Title',
 				'id'		=> $prefix . 'top_head_title',
@@ -1125,6 +1366,350 @@ function about_meta_boxes( $meta_boxes ) {
 						),
 					),
 				),
+			),
+		)
+	);
+	return $meta_boxes;
+}
+
+// News & Media METABOX
+add_filter( 'rwmb_meta_boxes', 'news_meta_boxes' );
+function news_meta_boxes( $meta_boxes ) {
+	$prefix = "prefix_news-";
+	$meta_boxes[] = array(
+		'title'      => 'News & Media Option',
+		'post_types' => 'page',
+		'include'   => array(
+			'template'    => array( 'template-news.php'),
+		),
+		'context' => 'after_title',
+		'fields' => array(
+			array(
+				'name'       => 'Box 1st',
+				'type'       => 'heading',
+			),	
+			array(
+				'name'       => 'Heading Blue',
+				'id'         => $prefix . '1st_blue_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Heading Black',
+				'id'         => $prefix . '1st_black_heading',
+				'type'       => 'text',
+			),	
+			array(
+				'name'		=> 'Text Button',
+				'id'		=> $prefix . '1st_text_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Link Button',
+				'id'		=> $prefix . '1st_link_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'ID Taxonomy',
+			    'id'         => $prefix . '1st_taxonomy',
+			    'type'       => 'text',
+			),
+
+			array(
+				'name'       => 'Box 2nd',
+				'type'       => 'heading',
+			),	
+			array(
+				'name'       => 'Heading Blue',
+				'id'         => $prefix . '2nd_blue_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Heading Black',
+				'id'         => $prefix . '2nd_black_heading',
+				'type'       => 'text',
+			),	
+			array(
+				'name'       => 'ID Taxonomy',
+			    'id'         => $prefix . '2nd_taxonomy',
+			    'type'       => 'text',
+			),
+
+			array(
+				'name'       => 'Box 3rd',
+				'type'       => 'heading',
+			),	
+			array(
+				'name'       => 'Heading Blue',
+				'id'         => $prefix . '3rd_blue_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Heading White',
+				'id'         => $prefix . '3rd_white_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Text',
+				'id'         => $prefix . '3rd_text',
+				'type'       => 'text',
+			),	
+			array(
+				'name'		=> 'Text Button',
+				'id'		=> $prefix . '3rd_text_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Link Button',
+				'id'		=> $prefix . '3rd_link_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'ID Taxonomy',
+			    'id'         => $prefix . '3rd_taxonomy',
+			    'type'       => 'text',
+			),
+
+			array(
+				'name'       => 'Box Media',
+				'type'       => 'heading',
+			),
+			array(
+				'name'       => 'Media Ads',
+				'id'         => $prefix . 'media_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'link',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'		=> 'Media Heading Black',
+				'id'		=> $prefix . 'media_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Media Heading Blue',
+				'id'		=> $prefix . 'media_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'Box Registration',
+				'type'       => 'heading',
+			),
+			array(
+				'name'		=> 'Registration Heading White',
+				'id'		=> $prefix . 'registration_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Registration Heading Blue',
+				'id'		=> $prefix . 'registration_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Registration Text',
+				'id'		=> $prefix . 'registration_text',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Registration Form',
+				'id'		=> $prefix . 'registration_form',
+				'type'		=> 'text',
+			),
+		)
+	);
+	return $meta_boxes;
+}
+
+// Event Features METABOX
+add_filter( 'rwmb_meta_boxes', 'features_meta_boxes' );
+function features_meta_boxes( $meta_boxes ) {
+	$prefix = "prefix_features-";
+	$meta_boxes[] = array(
+		'title'      => 'Event Features Option',
+		'post_types' => 'page',
+		'include'   => array(
+			'template'    => array( 'template-events.php'),
+		),
+		'context' => 'after_title',
+		'fields' => array(
+			array(
+				'name'       => 'Box 1st',
+				'type'       => 'heading',
+			),	
+			array(
+				'name'       => 'Heading Blue',
+				'id'         => $prefix . '1st_blue_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Heading Black',
+				'id'         => $prefix . '1st_black_heading',
+				'type'       => 'text',
+			),	
+			array(
+				'name'		=> 'Text Button',
+				'id'		=> $prefix . '1st_text_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Link Button',
+				'id'		=> $prefix . '1st_link_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'ID Taxonomy',
+			    'id'         => $prefix . '1st_taxonomy',
+			    'type'       => 'text',
+			),
+
+			array(
+				'name'       => 'Box 2nd',
+				'type'       => 'heading',
+			),	
+			array(
+			    'name' 		=> 'Hide / Show section',
+			    'id'   		=> $prefix . 'hide_2nd',
+			    'type' 		=> 'checkbox',
+			    'std'  		=> 1, // 0 or 1
+			),
+			array(
+				'name'       => 'Heading Blue',
+				'id'         => $prefix . '2nd_blue_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Heading Black',
+				'id'         => $prefix . '2nd_black_heading',
+				'type'       => 'text',
+			),	
+			array(
+				'name'       => 'ID Taxonomy',
+			    'id'         => $prefix . '2nd_taxonomy',
+			    'type'       => 'text',
+			),
+
+			array(
+				'name'       => 'Box 3rd',
+				'type'       => 'heading',
+			),	
+			array(
+			    'name' 		=> 'Hide / Show section',
+			    'id'   		=> $prefix . 'hide_3rd',
+			    'type' 		=> 'checkbox',
+			    'std'  		=> 1, // 0 or 1
+			),
+			array(
+				'name'       => 'Heading Blue',
+				'id'         => $prefix . '3rd_blue_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Heading White',
+				'id'         => $prefix . '3rd_white_heading',
+				'type'       => 'text',
+			),		
+			array(
+				'name'       => 'Text',
+				'id'         => $prefix . '3rd_text',
+				'type'       => 'text',
+			),	
+			array(
+				'name'		=> 'Text Button',
+				'id'		=> $prefix . '3rd_text_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Link Button',
+				'id'		=> $prefix . '3rd_link_button',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'ID Taxonomy',
+			    'id'         => $prefix . '3rd_taxonomy',
+			    'type'       => 'text',
+			),
+
+			array(
+				'name'       => 'Box Media',
+				'type'       => 'heading',
+			),
+			array(
+				'name'       => 'Media Ads',
+				'id'         => $prefix . 'media_ads',
+				'type'       => 'group',
+				'clone'      => true,
+				'collapsible' => true,
+				'default_state' => 'collapsed',
+				'group_title' => 'Item',
+				'sort_clone' => true,
+				'max_clone' => 10,
+				'fields' => array(
+					array(
+						'name'             => 'Image',
+						'id'               => $prefix . 'image',
+						'type'             => 'single_image',
+					),
+					array(
+						'name'    => 'Link',
+						'id'      => $prefix . 'link',
+						'type'    => 'text',
+					),
+				),
+			),
+			array(
+				'name'		=> 'Media Heading Black',
+				'id'		=> $prefix . 'media_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Media Heading Blue',
+				'id'		=> $prefix . 'media_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
+				'name'       => 'Box Registration',
+				'type'       => 'heading',
+			),
+			array(
+			    'name' 		=> 'Hide / Show section',
+			    'id'   		=> $prefix . 'hide_registration',
+			    'type' 		=> 'checkbox',
+			    'std'  		=> 1, // 0 or 1
+			),
+			array(
+				'name'		=> 'Registration Heading White',
+				'id'		=> $prefix . 'registration_heading_white',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Registration Heading Blue',
+				'id'		=> $prefix . 'registration_heading_blue',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Registration Text',
+				'id'		=> $prefix . 'registration_text',
+				'type'		=> 'text',
+			),
+			array(
+				'name'		=> 'Registration Form',
+				'id'		=> $prefix . 'registration_form',
+				'type'		=> 'text',
 			),
 		)
 	);

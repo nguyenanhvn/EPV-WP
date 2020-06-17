@@ -35,7 +35,7 @@ function custom_polylang_languages( $class = '' ) {
       if ( $current ) {
         $output .= "<span class=\"current\">$name</span>";   
       } else {
-        $output .= "<span><a href=\"$url\" class=\"dropdown-item\">$name</a></span>";   
+        $output .= "<a href=\"$url\" class=\"dropdown-item\">$name</a>";   
       }
       $output .= "</li>";
     }

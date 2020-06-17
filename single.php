@@ -36,7 +36,11 @@ if(in_category(1) || in_category(15) || in_category(42) || in_category(40) || in
 			<div class="bottom__img">
 				<div class="container">						
 					<div class="detail__img">
-						<?php the_post_thumbnail(); ?>
+						<?php 
+							$image = rwmb_meta('prefix_event-image')['ID'];
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							echo '<img src="' . $icon . '">';
+						?>
 					</div>
 				</div>
 			</div>
@@ -96,7 +100,7 @@ if(in_category(1) || in_category(15) || in_category(42) || in_category(40) || in
 								</div>
 								<div class="item__caption">
 									<h3 class="item__heading">
-										<a title="<?php the_title(); ?>">
+										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 											<?php the_title(); ?>
 										</a>
 									</h3>

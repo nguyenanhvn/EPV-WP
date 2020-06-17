@@ -768,6 +768,20 @@
 				height: auto !important;
 				width: auto !important;
 			}
+			.aligncenter{
+				text-align: center;
+			}
+			.wp-caption-text{
+				font-size: 12px;
+			    text-align: center;
+			    padding: 7px 0;
+			    color: rgba(0, 0, 0, 0.5);
+			    pointer-events: none;
+			    width: 100%;
+			    float: left;
+			    text-align: center;
+			    font-weight: normal;
+			}
 			.box__ads{
 				float: left;
 				width: 100%;
@@ -3408,6 +3422,7 @@
 					.item__caption{
 						padding: 12px 20px 22px;
 						background: #fff;
+					    height: calc(100% - 180px);
 						.item__heading{
 							font-size: 16px;
 							font-weight: 500;
@@ -3511,9 +3526,6 @@
 		section.content-news-interested .content-news_box .items .item{
 			width: 100%;
 			margin: 0 0 10px !important;
-		}
-		section.content-news-interested .content-news_box .items .item .item__img{
-			height: 220px;
 		}
 	}
 

@@ -37,7 +37,7 @@ global $des_options;
 									<div class="item__rate">
 										<?= wpautop( $content ); ?>
 									</div>
-									<a href="<?= $url ?>" class="item__book">
+									<a href="<?= $url ?>?type=<?php the_title(); ?>" class="item__book">
 										<?= $text ?>
 									</a>
 								</div>

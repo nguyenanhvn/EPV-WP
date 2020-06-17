@@ -1,38 +1,59 @@
-<!-- Content Free Style -->
-<section class="content-free-style">
+<!-- Content Breadcrumb -->
+<section class="content-breadcrumb">
 	<div class="container">
-		<div class="content-free-style_box">
-			<div class="col-9">
-				<div class="content-free-style_grid__event content-free-style_grid__none__top content-free-style_grid__have__load">
-					<div class="content-free-style_grid__items">
-						<?php
-						if(have_posts()):
-							while(have_posts()):
-								the_post();
-								?>
-								<div class="grid__item">
-									<a href="<?php the_permalink(); ?>" class="item__img">
-										<?php the_post_thumbnail('300x200'); ?>
-									</a>
-									<div class="item__caption">
-										<h3 class="item__caption__heading"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
-										<span class="item__caption__time"><?= get_the_date("F d, Y"); ?></span>
-										<div class="item__caption__paragraph"><?= excerpt(20); ?></div>
-									</div>
+		<?= custom_breadcrumbs_2(); ?>
+	</div>
+</section> <!-- /Content Breadcrumb -->
+
+<!-- Content News Style 1 -->
+<section class="content-news-style1">
+	<div class="container">
+		<div class="content-news_box">
+			<h2 class="heading">
+				Search: <span><?= get_search_query()?></span>
+			</h2>
+
+			<div class="clearfix"></div>
+				<?php if(have_posts()): ?>
+					<div class="items">
+					<?php while(have_posts()): the_post(); ?>
+						<div class="item">
+							<div class="item__img" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
+								<img src="<?php the_post_thumbnail_url('270x350'); ?>" alt="">
+							</div>
+							<div class="item__box">
+								<div class="item__date">
+									<strong><?= get_the_date('d'); ?></strong> <span><?= get_the_date('M Y'); ?></span>
 								</div>
-							<?php endwhile;
-							wp_reset_postdata();
-						endif; ?>
+								<div class="item__caption">
+									<h3 class="item__heading">
+										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+											<?php the_title(); ?>
+										</a>
+									</h3>
+									<div class="item__paragraph">
+										<?= excerpt(15); ?>
+									</div>
+
+									<a href="<?php the_permalink(); ?>" class="item__more">
+										<?= changeLang('Learn more', 'Xem thêm'); ?> <span>→</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					<?php endwhile; ?>
 					</div>
+				<?php else: ?>
+                    <div class="no-results td-pb-padding-side">
+                    	<h4>
+	                    	<?= changeLang('No results for your search, please do another search', 'Không có kết quả cho tìm kiếm của bạn, xin vui lòng thực hiện một tìm kiếm khác'); ?>
+                    	</h4>
+                    </div>
+                <?php endif; ?>  
 
-					<div class="clearfix"></div>
+			<?= posts_nav(); ?>
 
-					<div class="content-free-style_load">Load more articles</div>
-				</div>
-			</div>
-			<div class="col-3">
-				<?php get_sidebar('full'); ?>
-			</div>
+			<?= do_shortcode( '[ads_slide]' ); ?>
 		</div>
 	</div>
-</section> <!-- /Content Free Style -->
+	</section> <!-- /Content News Style 1 -->

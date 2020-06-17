@@ -122,131 +122,77 @@ global $epv_options; ?>
 <section class="content-show">
 	<div class="container">
 		<div class="content-show_box">
-			<h2 class="heading">Show <span>Statistics</span></h2>
+			<h2 class="heading">
+				<?php 
+					$white__title = rwmb_meta('prefix_homepage_static_heading_white');
+					$blue__title = rwmb_meta('prefix_homepage_static_heading_blue');
+					echo $white__title;
+					?> <span><?= $blue__title; ?></span>
+			</h2>
 
 			<div class="box__circle box__circle__number__animation">
 				<div class="box__circle__dot">
 					<img src="<?= get_template_directory_uri(); ?>/images/dot-start.png" alt="">
 				</div>
-				<ul class="no-style items">
-					<li data-count="<?= $epv_options['area'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-01.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span><sup>sqm</sup>
-							</div>
-							<div class="text"><?= changeLang('Exhibition Area','Khu Vực Triển Lãm'); ?></div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['no-of-exhibitors'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-02.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>+
-							</div>
-							<div class="text"><?= changeLang('No. of Exhibitors','Đơn Vị Triển Lãm'); ?></div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['country-regions'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-03.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>
-							</div>
-							<div class="text"><?= changeLang('Countries/Regions', 'Quốc Gia/Khu Vực');?></div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['group-pavillions'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-04.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>
-							</div>
-							<div class="text"><?= changeLang('Group Pavillions','Gian Hàng');?></div>
-						</div>
-					</li>
-					<li data-count="<?= $epv_options['no-of-visitors'];?>">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-05.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<span>0</span>+
-							</div>
-							<div class="text"><?= changeLang('No. of Visitors','Khách Tham Quan'); ?></div>
-						</div>
-					</li>
-				</ul>
+
+				<?php 
+					$ads = rwmb_meta('prefix_homepage_static_groups');
+					if ( ! empty( $ads ) ): ?>
+						<ul class="no-style items">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_homepage_static_image'] ) ? $ads__item['prefix_homepage_static_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$number = isset( $ads__item['prefix_homepage_static_number'] ) ? $ads__item['prefix_homepage_static_number'] : '';
+							$sub_number = isset( $ads__item['prefix_homepage_static_sub_number'] ) ? $ads__item['prefix_homepage_static_sub_number'] : '';
+							$text = isset( $ads__item['prefix_homepage_static_text'] ) ? $ads__item['prefix_homepage_static_text'] : '';
+							?>
+							<li data-count="<?= $number ?>">
+								<div class="icon">
+									<img src="<?= $icon ?>" alt="">
+								</div>
+								<div class="paragraph">
+									<div class="number">
+										<span>0</span><?= $sub_number ?>
+									</div>
+									<div class="text"><?= $text ?></div>
+								</div>
+							</li>
+						<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				<div class="box__circle__dot">
 					<img src="<?= get_template_directory_uri(); ?>/images/dot-end.png" alt="">
 				</div>					
 			</div>
 
-			<div class="box__circle__ipad">
-				<ul class="no-style items owl-carousel">
-					<li class="child-1">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-01.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['area'];?><sup>sqm</sup>
-							</div>
-							<div class="text"><?= changeLang('Exhibition Area','Khu Vực Triển Lãm'); ?></div>
-						</div>
-					</li>
-					<li class="child-2">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-02.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['no-of-exhibitors'];?>+
-							</div>
-							<div class="text"><?= changeLang('No. of Exhibitors','Đơn Vị Triển Lãm'); ?></div>
-						</div>
-					</li>
-					<li class="child-3">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-03.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['country-regions'];?>
-							</div>
-							<div class="text"><?= changeLang('Countries/Regions', 'Quốc Gia/Khu Vực');?></div>
-						</div>
-					</li>
-					<li class="child-4">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-04.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['group-pavillions'];?>
-							</div>
-							<div class="text"><?= changeLang('Group Pavillions','Gian Hàng');?></div>
-						</div>
-					</li>
-					<li class="child-5">
-						<div class="icon">
-							<img src="<?= get_template_directory_uri(); ?>/images/icon-05.png" alt="">
-						</div>
-						<div class="paragraph">
-							<div class="number">
-								<?= $epv_options['no-of-visitors'];?>+
-							</div>
-							<div class="text"><?= changeLang('No. of Visitors','Khách Tham Quan'); ?></div>
-						</div>
-					</li>
+			<div class="box__circle__ipad">				
+				<?php 
+					$ads = rwmb_meta('prefix_homepage_static_groups');
+					if ( ! empty( $ads ) ): ?>
+						<ul class="no-style items owl-carousel">
+						<?php 						
+							$i = 1;
+							foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_homepage_static_image'] ) ? $ads__item['prefix_homepage_static_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$number = isset( $ads__item['prefix_homepage_static_number'] ) ? $ads__item['prefix_homepage_static_number'] : '';
+							$sub_number = isset( $ads__item['prefix_homepage_static_sub_number'] ) ? $ads__item['prefix_homepage_static_sub_number'] : '';
+							$text = isset( $ads__item['prefix_homepage_static_text'] ) ? $ads__item['prefix_homepage_static_text'] : '';
+							?>
+							<li class="child-<?= $i ?>">
+								<div class="icon">
+									<img src="<?= $icon ?>" alt="">
+								</div>
+								<div class="paragraph">
+									<div class="number">
+										<span><?= $number ?></span><?= $sub_number ?>
+									</div>
+									<div class="text"><?= $text ?></div>
+								</div>
+							</li>
+						<?php $i++; endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</ul>		
 			</div>
 		</div>
@@ -291,17 +237,23 @@ global $epv_options; ?>
 					<?php endforeach;
 				endif; ?>
 			</div>
+
 			<div class="box__ads">
-				<div class="ads__slider owl-carousel">
-					<?php if ( isset( $epv_options['middle-banner-ads'] ) && !empty( $epv_options['middle-banner-ads'] ) ) {
-						for ($i = 0; $i < count($epv_options['middle-banner-ads']); $i++) {?>
-							<a href="<?= ($epv_options['middle-banner-ads'][$i]['url'] != '') ? $epv_options['middle-banner-ads'][$i]['url'] : '#'; ?>" title="" target="_blank">
-								<img src="<?= $epv_options['middle-banner-ads'][$i]['image'];?>" alt="">
-							</a>
-						<?php }
-					} ?>	
-				</div>
-				<!-- <span>ADVERTISING</span> -->
+				<?php 
+					$ads = rwmb_meta('prefix_homepage_grid_ads');
+					if ( ! empty( $ads ) ): ?>
+						<div class="ads__slider owl-carousel">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_homepage_image'] ) ? $ads__item['prefix_homepage_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$link = $ads__item['prefix_homepage_link'];
+							?>
+							<a href="<?= $link; ?>" title="" target="_blank">
+								<img src="<?= $icon ?>" alt="">
+							</a>	
+						<?php endforeach; ?>
+						</div>
+					<?php endif; ?>				
 			</div>
 		</div>
 	</div>
@@ -377,21 +329,37 @@ global $epv_options; ?>
 		<div class="container">
 			<div class="content-upcoming_box">
 				<div class="box__top">
-					<h2 class="heading">Upcoming <span>Events</span></h2>
+					<h2 class="heading">									
+						<?php 
+							$white__title = rwmb_meta('prefix_homepage_upcoming_heading_white');
+							$blue__title = rwmb_meta('prefix_homepage_upcoming_heading_blue');
+							echo $white__title;
+							?> <span><?= $blue__title; ?></span>
+					</h2>
 
-					<a class="view__all" href="<?= changeLang(site_url().'/new-media/event-news/',site_url().'/tin-tuc-truyen-thong/tin-su-kien/'); ?>">
-						View All Events
+					<?php 
+						$link = rwmb_meta('prefix_homepage_upcoming_link_button');
+						$text = rwmb_meta('prefix_homepage_upcoming_text_button');
+					?>
+					<a class="view__all" href="<?= $link ?>">
+						<?= $text ?>
 					</a>
 				</div>
 
 				<div class="clearfix"></div>
 
-				<div class="box__bottom" text="EVENT FEATURES">
+				<?php 
+					$event = rwmb_meta('prefix_homepage_upcoming_event');
+				?>
+				<div class="box__bottom" text="<?= $event ?>">
 					<?php 
 					global $post;
 					$post = get_post($epv_options['event-main-post']);
 					setup_postdata($post); 
-					$locate = rwmb_meta('prefix_event-locate');?>
+					$locate = rwmb_meta('prefix_event-locate');
+					$day = rwmb_meta('prefix_event-time_day');
+					$month = rwmb_meta('prefix_event-time_my');
+					?>
 					<div class="item__main">
 						<div class="item__img" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
 							<img src="<?php the_post_thumbnail_url('685x480'); ?>" alt="">
@@ -409,8 +377,8 @@ global $epv_options; ?>
 						</div>
 
 						<div class="item__date">
-							<strong><?= get_the_date('m-d'); ?></strong>
-							<span><?= get_the_date('m/Y'); ?></span>
+							<strong><?= $day; ?></strong><br>
+							<span><?= $month; ?></span>
 						</div>
 					</div>
 					<?php wp_reset_postdata();?>
@@ -420,7 +388,9 @@ global $epv_options; ?>
 							global $post;
 							$post = get_post($event_value);
 							setup_postdata($post); 
-							$locate = rwmb_meta('prefix_event-locate');?>
+							$locate = rwmb_meta('prefix_event-locate');							
+							$full = rwmb_meta('prefix_event-time_text');
+							?>
 							<div class="item">
 								<a href="<?php the_permalink(); ?>" class="item__img">
 									<img src="<?php the_post_thumbnail_url('100x100'); ?>" alt="">
@@ -433,10 +403,10 @@ global $epv_options; ?>
 									</h3>
 
 									<div class="item__info">
-										<?= get_the_date('d F, Y'); ?> | <?= $locate; ?>
+										<?= $full; ?> | <?= $locate; ?>
 									</div>
 
-									<a class="item__more" href="<?php the_permalink(); ?>"><?= changeLang('Learn more','Xem thêm'); ?> <span>→</span></a>
+									<a class="item__more">Learn more <span>→</span></a>
 								</div>
 							</div>
 							<?php wp_reset_postdata();
@@ -446,19 +416,25 @@ global $epv_options; ?>
 			</div>
 		</div>
 	</div>
-</section> <!-- /Content Upcoming -->
+</section>
 
 <!-- Content News & Updates -->
 <section class="content-updates">
 	<div class="container">
 		<div class="content-updates_box">
-			<?= changeLang('<h2 class="relative heading">News & <span>Updates</span></h2>', '<h2 class="relative heading">Tin Tức & <span>Cập Nhật</span></h2>'); ?>
+			<h2 class="heading" style="position: relative;">									
+				<?php 
+					$white__title = rwmb_meta('prefix_homepage_news_heading_white');
+					$blue__title = rwmb_meta('prefix_homepage_news_heading_blue');
+					echo $white__title;
+					?> <span><?= $blue__title; ?></span>
+			</h2>
 
 			<!-- Nav tabs -->
 			<ul class="relative nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab"><?= changeLang('Industry News','Tin Ngành'); ?></a></li>
 				<li role="presentation"><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab"><?= changeLang('Press Release','Thông Cáo Báo Chí'); ?></a></li>
-				<li role="presentation"><a href="#tab-3" aria-controls="tab-3" role="tab" data-toggle="tab"><?= changeLang('Events','Tin Sự Kiện'); ?></a></li>
+				<li role="presentation"><a href="#tab-3" aria-controls="tab-3" role="tab" data-toggle="tab"><?= changeLang('Events News','Tin Sự Kiện'); ?></a></li>
 				<li role="presentation"><a href="#tab-4" aria-controls="tab-4" role="tab" data-toggle="tab"><?= changeLang('Featured Articles','Bài Viết Đặc Biệt'); ?></a></li>
 			</ul>
 
@@ -615,7 +591,13 @@ global $epv_options; ?>
 
 			<div class="clearfix"></div>
 
-			<a class="view__all" href="<?= changeLang(site_url().'/new-media/',site_url().'/tin-tuc-truyen-thong/'); ?>"><?= changeLang('View All News & Updates','Xem Tất Cả Tin Tức Mới Cập Nhật');?></a>
+			<?php 
+				$link = rwmb_meta('prefix_homepage_news_link');
+				$text = rwmb_meta('prefix_homepage_news_text');
+			?>
+			<a class="view__all" href="<?= $link ?>">
+				<?= $text ?>
+			</a>
 		</div>
 	</div>
 </section> <!-- /Content News & Updates -->
@@ -625,20 +607,32 @@ global $epv_options; ?>
 	<div class="container">
 		<div class="content-media_box">
 			<div class="box__ads">
-				<div class="ads__slider owl-carousel">
-					<?php if ( isset( $epv_options['bottom-banner-ads'] ) && !empty( $epv_options['bottom-banner-ads'] ) ) {
-						for ($i = 0; $i < count($epv_options['bottom-banner-ads']); $i++) {?>
-							<a href="<?= ($epv_options['bottom-banner-ads'][$i]['url'] != '') ? $epv_options['bottom-banner-ads'][$i]['url'] : '#'; ?>" title="" target="_blank">
-								<img src="<?= $epv_options['bottom-banner-ads'][$i]['image'];?>" alt="">
-							</a>
-						<?php }
-					} ?>
-				</div>
-				<!-- <span>ADVERTISING</span> -->
+				<?php 
+					$ads = rwmb_meta('prefix_homepage_media_ads');
+					if ( ! empty( $ads ) ): ?>
+						<div class="ads__slider owl-carousel">
+						<?php foreach ( $ads as $ads__item ):
+							$image = isset( $ads__item['prefix_homepage_image'] ) ? $ads__item['prefix_homepage_image'] : '';
+							$icon = wp_get_attachment_image_url( $image, 'full' );
+							$link = $ads__item['prefix_homepage_link'];
+							?>
+							<a href="<?= $link; ?>" title="" target="_blank">
+								<img src="<?= $icon ?>" alt="">
+							</a>	
+						<?php endforeach; ?>
+						</div>
+						<!-- <span>ADVERTISING</span> -->
+					<?php endif; ?>				
 			</div>
 
-			<div class="box__media">
-				<?= changeLang('<h2 class="heading">Media <span>Partners & Sponsor</span></h2>', '<h2 class="heading">Đối Tác <span>Báo Chí & Nhà Tài Trợ</span></h2>'); ?>
+			<div class="box__media">				
+				<h2 class="heading">									
+					<?php 
+						$white__title = rwmb_meta('prefix_homepage_media_heading_white');
+						$blue__title = rwmb_meta('prefix_homepage_media_heading_blue');
+						echo $white__title;
+						?> <span><?= $blue__title; ?></span>
+				</h2>
 
 				<div class="media__slider owl-carousel">
 					<?php 

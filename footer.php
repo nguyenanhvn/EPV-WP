@@ -248,13 +248,27 @@
 	</div>
 </div> <!-- /Menu Mobile -->
 
-<div id="dark-shadow"></div>	
-<div class="sticky-fanpage active">
+<div id="dark-shadow"></div>
+<?php
+	if(!isset($_SESSION["fanpage"])){ ?>
+	<div class="sticky-fanpage active">
+	<?php } else { ?>
+	<div class="sticky-fanpage">
+	<?php } ?>
 	<span class="closeFrame">×</span>
 	<h3>FanPage</h3>
 	<div class="fb-page" data-href="https://www.facebook.com/ElectricPowerVietnam/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/ElectricPowerVietnam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ElectricPowerVietnam/">Electric &amp; Power Vietnam</a></blockquote></div>
 </div>
-<!-- Lightbox  -->
+<!-- Lightbox  -->	
+<?php
+	// Starting session
+	session_start();
+	 
+	// Storing session data
+	if(!isset($_SESSION["fanpage"])){
+	    $_SESSION["fanpage"] = "true";
+	}
+?>
 <?php
 	if(!isset($_SESSION["lightbox"])){ ?>
 		<div class="md-modal md-effect-1 md-show" id="md-lightbox">
@@ -285,7 +299,7 @@
 							?>
 						</div>
 
-						<a class="box__right__more" href="<?php the_permalink(); ?>"><?= changeLang('Mode detail','Chi tiết'); ?></a>
+						<a class="box__right__more" href="<?php the_permalink(); ?>"><?= changeLang('More detail','Chi tiết'); ?></a>
 						<?php wp_reset_postdata(); ?>
 					</div>
 				</div>

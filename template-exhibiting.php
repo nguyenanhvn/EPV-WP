@@ -507,7 +507,10 @@ if(is_page(165) || is_page(323)){
 					global $post;
 					$post = get_post($epv_options['event-main-post']);
 					setup_postdata($post); 
-					$locate = rwmb_meta('prefix_event-locate');?>
+					$locate = rwmb_meta('prefix_event-locate');
+					$day = rwmb_meta('prefix_event-time_day');
+					$month = rwmb_meta('prefix_event-time_my');
+					?>
 					<div class="item__main">
 						<div class="item__img" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
 							<img src="<?php the_post_thumbnail_url('685x480'); ?>" alt="">
@@ -525,8 +528,8 @@ if(is_page(165) || is_page(323)){
 						</div>
 
 						<div class="item__date">
-							<strong><?= get_the_date('m-d'); ?></strong>
-							<span><?= get_the_date('m/Y'); ?></span>
+							<strong><?= $day; ?></strong><br>
+							<span><?= $month; ?></span>
 						</div>
 					</div>
 					<?php wp_reset_postdata();?>
@@ -536,7 +539,9 @@ if(is_page(165) || is_page(323)){
 							global $post;
 							$post = get_post($event_value);
 							setup_postdata($post); 
-							$locate = rwmb_meta('prefix_event-locate');?>
+							$locate = rwmb_meta('prefix_event-locate');							
+							$full = rwmb_meta('prefix_event-time_text');
+							?>
 							<div class="item">
 								<a href="<?php the_permalink(); ?>" class="item__img">
 									<img src="<?php the_post_thumbnail_url('100x100'); ?>" alt="">
@@ -549,7 +554,7 @@ if(is_page(165) || is_page(323)){
 									</h3>
 
 									<div class="item__info">
-										<?= get_the_date('d F, Y'); ?> | <?= $locate; ?>
+										<?= $full; ?> | <?= $locate; ?>
 									</div>
 
 									<a class="item__more">Learn more <span>→</span></a>

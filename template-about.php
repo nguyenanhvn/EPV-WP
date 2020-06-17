@@ -6,18 +6,10 @@ get_header();
 global $des_options;
 ?>
 <?php 
-if(is_page(91) || is_page(93) || is_page(95)){
-	echo do_shortcode( '[needtoknow_menu]' );
-}
-if(is_page(99) || is_page(101) || is_page(103)){
-	echo do_shortcode( '[exhibit_menu]' );
-}
-if(is_page(97) || is_page(105) || is_page(107)){
-	echo do_shortcode( '[visiting_menu]' );
-}
-if(is_page(313) || is_page(109)){
-	echo do_shortcode( '[newmedia_menu]' );
-}
+	$shortcode = rwmb_meta('prefix_about_shortcode');
+	if ($shortcode) {		
+		echo do_shortcode('[' .$shortcode. ']');
+	}
 ?>
 <!-- Content Breadcrumb -->
 <section class="content-breadcrumb">
