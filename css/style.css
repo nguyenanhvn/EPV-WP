@@ -2754,6 +2754,43 @@ section.content-application {
           font-family: 'Roboto', 'Arial', sans-serif;
           font-weight: normal;
           text-align: center; }
+        section.content-application .content-application_box .box__blue .form .group .box-select {
+          position: relative;
+          float: left;
+          width: 100%;
+          border-bottom: 1px solid #002945; }
+          section.content-application .content-application_box .box__blue .form .group .box-select:focus {
+            border-bottom-color: #00aeef; }
+          section.content-application .content-application_box .box__blue .form .group .box-select:after {
+            content: '';
+            display: block;
+            width: 13px;
+            height: 8px;
+            background: url(../images/arrow-dropdown.png) no-repeat center/cover;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 20px;
+            margin: auto;
+            pointer-events: none; }
+          section.content-application .content-application_box .box__blue .form .group .box-select select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            position: relative;
+            float: left;
+            border: 0;
+            width: 100%;
+            height: 45px;
+            line-height: 43px;
+            background: #002945;
+            padding: 2px 40px 0 15px;
+            outline: none; }
+            section.content-application .content-application_box .box__blue .form .group .box-select select::-ms-expand {
+              display: none; }
+            section.content-application .content-application_box .box__blue .form .group .box-select select option {
+              color: #fff; }
 
 @media (max-width: 450px) {
   section.content-application .content-application_box .heading {

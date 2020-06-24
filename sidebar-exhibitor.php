@@ -31,7 +31,7 @@
 	</ul>
 
 	<a class="more" href="<?= site_url(); ?>/<?= changeLang("e-brochures","vi/tai-lieu-trien-lam/"); ?>">
-		<?= changeLang("Download More Brochures","Download thêm tài liệu"); ?>
+		<?= changeLang("Download More Brochures","Tải thêm tài liệu"); ?>
 	</a>
 </div>
 

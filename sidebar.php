@@ -1,7 +1,9 @@
 <?php global $epv_options; ?>
 <div class="content__sidebar">
 	<div class="content__widget">
-		<h3>Must Read</h3>
+		<h3>
+			<?= changeLang("Must Read", "Bài viết nên đọc "); ?>
+		</h3>
 		<ul class="content__widget__news">
 			<?php 
 			global $post;

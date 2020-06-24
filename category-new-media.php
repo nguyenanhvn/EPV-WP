@@ -19,15 +19,7 @@ echo do_shortcode( '[newmedia_menu]' );
 			if($query->have_posts()):
 				?>
 				<h2 class="heading">
-					<?php 
-					$pieces = explode(" ",get_cat_name($cat));
-					for ($i = 0; $i <= count($pieces) - 1; $i++) {
-						if($i == (count($pieces) - 1))
-							printf(" <span>%s</span>",$pieces[$i]);
-						else
-							echo $pieces[$i];
-					}
-					?>
+					<?=single_cat_title()?>
 				</h2>
 
 				<a class="view__all" href="<?= get_category_link($cat); ?>"><?= changeLang('View All Industry News','Xem tất cả tin ngành'); ?></a>

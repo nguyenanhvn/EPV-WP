@@ -108,7 +108,7 @@
 							<?= changeLang('Get Exclusive Offers and Latest news', 'Nhận ưu đãi độc quyền và tin tức mới nhất'); ?>
 						</div>
 						<div class="form">
-							<?= do_shortcode( '[contact-form-7 id="5" title="Subscribe"]' ); ?>
+							<?= changeLang(do_shortcode( '[contact-form-7 id="5" title="Subscribe"]' ), do_shortcode( '[contact-form-7 id="496" title="Subscribe VI"]' )) ?>
 						</div>
 					</div>
 				</div>

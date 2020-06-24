@@ -505,7 +505,7 @@ if(is_page(165) || is_page(323)){
 				<div class="box__bottom" text="<?= $event ?>">
 					<?php 
 					global $post;
-					$post = get_post($epv_options['event-main-post']);
+					$post = get_post(changeLang($epv_options['event-main-post'],$epv_options['event-main-post-vi']));
 					setup_postdata($post); 
 					$locate = rwmb_meta('prefix_event-locate');
 					$day = rwmb_meta('prefix_event-time_day');
@@ -534,7 +534,8 @@ if(is_page(165) || is_page(323)){
 					</div>
 					<?php wp_reset_postdata();?>
 					<div class="items">
-						<?php $event_other = $epv_options['event-other-post'];
+						<?php 
+							$event_other = changeLang($epv_options['event-other-post'],$epv_options['event-other-post-vi']);
 						foreach ($event_other as $event_value):
 							global $post;
 							$post = get_post($event_value);

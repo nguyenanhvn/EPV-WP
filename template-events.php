@@ -30,9 +30,17 @@ echo do_shortcode( '[visiting_menu]' );
 			<?php
 			$cat = rwmb_meta('prefix_features-1st_taxonomy');
 			$args = array(
-				'post_type'	=> 'post',
-				'cat'		=> $cat,
-				'posts_per_page' => 12,
+	            'post_type' => 'post',
+	            'post_status' => 'publish',    
+				'posts_per_page' => 12, 
+				'orderby'	=> 'date',
+	            'tax_query' => array(
+			        array(
+			            'taxonomy' => 'category',
+			            'field' => 'id',
+			            'terms' => $cat,
+			        ),
+			    ),
 			);
 			wp_reset_query();
 			$query = new WP_Query($args);
@@ -93,8 +101,18 @@ echo do_shortcode( '[visiting_menu]' );
 			<?php
 			$cat = rwmb_meta('prefix_features-2nd_taxonomy');
 			$args = array(
-				'post_type'	=> 'post',
-				'cat'		=> $cat,
+	            'post_type' => 'post',
+	            'post_status' => 'publish',    
+				'posts_per_page' => 12, 
+				'orderby'	=> 'date',
+				'offset'	=> 1,
+	            'tax_query' => array(
+			        array(
+			            'taxonomy' => 'category',
+			            'field' => 'id',
+			            'terms' => $cat,
+			        ),
+			    ),
 				'orderby'	=> 'date',
 			);
 			wp_reset_query();
@@ -133,8 +151,18 @@ echo do_shortcode( '[visiting_menu]' );
 					<div class="item__bottom">
 						<?php 
 						$args_next = array(
-							'post_type'	=> 'post',
-							'cat'		=> $cat,
+				            'post_type' => 'post',
+				            'post_status' => 'publish',    
+							'posts_per_page' => 12, 
+							'orderby'	=> 'date',
+							'offset'	=> 1,
+				            'tax_query' => array(
+						        array(
+						            'taxonomy' => 'category',
+						            'field' => 'id',
+						            'terms' => $cat,
+						        ),
+						    ),
 							'orderby'	=> 'date',
 							'offset'	=> 1,
 						);
@@ -200,8 +228,18 @@ echo do_shortcode( '[visiting_menu]' );
 			<?php
 			$cat = rwmb_meta('prefix_features-3rd_taxonomy');
 			$args = array(
-				'post_type'	=> 'post',
-				'cat'		=> $cat,
+	            'post_type' => 'post',
+	            'post_status' => 'publish',    
+				'posts_per_page' => 12, 
+				'orderby'	=> 'date',
+				'offset'	=> 1,
+	            'tax_query' => array(
+			        array(
+			            'taxonomy' => 'category',
+			            'field' => 'id',
+			            'terms' => $cat,
+			        ),
+			    ),
 				'posts_per_page'	=> 12,
 			);
 			wp_reset_postdata();

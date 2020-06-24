@@ -24,15 +24,7 @@
 	<div class="container">
 		<div class="content-news_box">
 			<h2 class="heading">
-				<?php 
-				$pieces = explode(" ",single_cat_title("",false));
-				for ($i = 0; $i <= count($pieces) - 1; $i++) {
-					if($i == (count($pieces) - 1))
-						printf(" <span>%s</span>",$pieces[$i]);
-					else
-						echo $pieces[$i];
-				}
-				?>
+				<?=single_cat_title()?>
 			</h2>
 
 			<div class="clearfix"></div>

@@ -701,6 +701,14 @@ jQuery(window).resize(function(event) {
 		swipe: false,
 		speed: 1000,
 	});
+
+    jQuery('.selectbox__radio input').each(function(key, val) {
+        bookType = getUrlParameter('type');
+        if (jQuery(this).parent().find('label').text() == bookType) {
+            jQuery(this).addClass('nf-checked');
+            jQuery(this).trigger('click');
+        }
+    });
 });
 
 function header(){
@@ -717,3 +725,10 @@ function header(){
 	}      
 	jQuery('#header .box-menu .menu-top').height(x - 360);
 }
+
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
